@@ -23,17 +23,24 @@
       color: #ffffff;
     }
 
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
+    .logo-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block; /* To contain the circular image properly */
+}
 
-    .logo-container img {
-      width: 200px;
-      height: auto;
-      object-fit: contain;
-    }
+.logo-img {
+  width: 140px;
+  height: 140px; /* Make height equal to width for a perfect circle */
+  object-fit: cover; /* Crop the image to fit the circle */
+  transition: transform 0.3s ease;
+  border-radius: 50%; /* Make the image circular */
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
 
     h2 {
       font-size: 2.8rem;
@@ -151,9 +158,10 @@
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="logo.png" alt="NextStepNIE Logo">
-  </div>
+  <a href="index.html" class="logo-link">
+    <img src="projectlogo.jpeg" alt="NextStepNIE Logo" class="logo-img circular-logo">
+  </a>
+
   <h2>Welcome, Student!</h2>
   <div class="tagline">Make the most of your academic journey with us</div>
   <div class="card-container">
