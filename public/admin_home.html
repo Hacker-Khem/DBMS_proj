@@ -7,96 +7,166 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
-      margin: 0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
       padding: 20px;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      background-color: #ffffff;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 14px 28px rgba(0, 191, 198, 0.25);
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
     }
 
-    h1, h2 {
-      text-align: center;
-      color: #0b868b;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border: 1px solid #b2e4e6;
-      background-color: #faffff;
-    }
-
-    th {
-      background-color: #c4f1f3;
-      color: #0b868b;
-    }
-
-    tr:hover {
-      background-color: #e0f7f8;
-    }
-
-    button {
-      border-radius: 10px;
-      border: none;
-      padding: 8px 16px;
-      font-weight: bold;
-      cursor: pointer;
-      background-color: #00bfc6;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #0b868b;
-    }
-
-    form {
-      display: inline;
-    }
-    .logout-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 12px 20px;
-      font-size: 1rem;
+    .header h1 {
+      font-size: 2rem;
       color: #fff;
+    }
+
+    .logout-btn {
       background-color: #ff4d4d;
+      padding: 12px 20px;
       border: none;
-      border-radius: 50px;
+      border-radius: 30px;
+      font-weight: bold;
+      color: white;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     .logout-btn:hover {
       background-color: #e60000;
-      transform: scale(1.1);
-      box-shadow: 0 8px 16px rgba(255, 77, 77, 0.2);
+      transform: scale(1.05);
+    }
+
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      flex: 1;
+      background: #1e1e2f;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .stat-card p {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .section {
+      background: #1e1e2f;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      color: #e0e0e0;
+    }
+
+    th {
+      background-color: #2a2a40;
+    }
+
+    tr:nth-child(even) {
+      background-color: #2e2e48;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #24243b;
+    }
+
+    button {
+      border-radius: 8px;
+      border: none;
+      padding: 6px 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: 0.3s;
+    }
+
+    .approve-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .approve-btn:hover {
+      background-color: #218838;
+    }
+
+    .reject-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .reject-btn:hover {
+      background-color: #c82333;
+    }
+
+    a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome, Admin</h1>
+  <div class="header">
+    <h1>🧠 Admin Dashboard</h1>
+    <a href="index.html"><button class="logout-btn">Logout</button></a>
+  </div>
 
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Pending Students</h3>
+      <p>3</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pending Clubs</h3>
+      <p>2</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pending Resources</h3>
+      <p>2</p>
+    </div>
+  </div>
+
+  <div class="section">
     <h2>Pending Student Registrations</h2>
-    <table id="student-table">
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -107,11 +177,13 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="student-table"></tbody>
     </table>
+  </div>
 
+  <div class="section">
     <h2>Pending Club Registrations</h2>
-    <table id="club-table">
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -120,11 +192,13 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="club-table"></tbody>
     </table>
+  </div>
 
+  <div class="section">
     <h2>Pending Resource Suggestions</h2>
-    <table id="resource-table">
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -134,7 +208,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="resource-table"></tbody>
     </table>
   </div>
 
@@ -143,7 +217,7 @@
       const res = await fetch('/admin-home-data');
       const data = await res.json();
 
-      const studentTable = document.querySelector('#student-table tbody');
+      const studentTable = document.querySelector('#student-table');
       data.students.forEach(s => {
         const dobFormatted = new Date(s.dob).toLocaleDateString('en-IN', {
           day: 'numeric', month: 'long', year: 'numeric'
@@ -156,20 +230,19 @@
             <td>${s.branch}</td>
             <td>${dobFormatted}</td>
             <td>
-              <form method="POST" action="/approve-student">
+              <form method="POST" action="/approve-student" style="display:inline;">
                 <input type="hidden" name="id" value="${s.id}" />
-                <button type="submit">Approve</button>
+                <button class="approve-btn">Approve</button>
               </form>
-              <form method="POST" action="/reject-student">
+              <form method="POST" action="/reject-student" style="display:inline;">
                 <input type="hidden" name="id" value="${s.id}" />
-                <button type="submit">Reject</button>
+                <button class="reject-btn">Reject</button>
               </form>
             </td>
-          </tr>
-        `;
+          </tr>`;
       });
 
-      const clubTable = document.querySelector('#club-table tbody');
+      const clubTable = document.querySelector('#club-table');
       data.clubs.forEach(c => {
         clubTable.innerHTML += `
           <tr>
@@ -177,20 +250,19 @@
             <td>${c.name}</td>
             <td>${c.club_id}</td>
             <td>
-              <form method="POST" action="/approve-club">
+              <form method="POST" action="/approve-club" style="display:inline;">
                 <input type="hidden" name="id" value="${c.id}" />
-                <button type="submit">Approve</button>
+                <button class="approve-btn">Approve</button>
               </form>
-              <form method="POST" action="/reject-club">
+              <form method="POST" action="/reject-club" style="display:inline;">
                 <input type="hidden" name="id" value="${c.id}" />
-                <button type="submit">Reject</button>
+                <button class="reject-btn">Reject</button>
               </form>
             </td>
-          </tr>
-        `;
+          </tr>`;
       });
 
-      const resourceTable = document.querySelector('#resource-table tbody');
+      const resourceTable = document.querySelector('#resource-table');
       data.resources.forEach(r => {
         resourceTable.innerHTML += `
           <tr>
@@ -199,22 +271,20 @@
             <td>${r.type}</td>
             <td><a href="${r.link}" target="_blank">View Resource</a></td>
             <td>
-              <form method="POST" action="/approve-resource">
+              <form method="POST" action="/approve-resource" style="display:inline;">
                 <input type="hidden" name="id" value="${r.id}" />
-                <button type="submit">Approve</button>
+                <button class="approve-btn">Approve</button>
               </form>
-              <form method="POST" action="/reject-resource">
+              <form method="POST" action="/reject-resource" style="display:inline;">
                 <input type="hidden" name="id" value="${r.id}" />
-                <button type="submit">Reject</button>
+                <button class="reject-btn">Reject</button>
               </form>
             </td>
-          </tr>
-        `;
+          </tr>`;
       });
     }
 
     loadData();
   </script>
-  <a href="index.html"><button class="logout-btn">Logout</button></a>
 </body>
 </html>

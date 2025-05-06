@@ -12,81 +12,92 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
-      padding: 40px 20px;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a3b);
+      color: #ffffff;
       min-height: 100vh;
+      padding: 40px 20px;
+      background-attachment: fixed;
     }
 
     h2 {
       font-size: 2.2rem;
       text-align: center;
-      color: #22666a;
+      color: #ffffff;
       margin-bottom: 30px;
     }
 
-    .form-card {
-      background: #ffffff;
-      padding: 25px;
+    .form-card,
+    #edit-form,
+    .activity-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      padding: 35px; /* Increased */
+      margin-bottom: 40px;
       max-width: 600px;
-      margin: 0 auto 40px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    input[type="text"], input[type="url"] {
+    input[type="text"],
+    input[type="url"] {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+      padding: 16px; /* Increased */
+      margin-bottom: 18px;
+      border-radius: 12px; /* Increased */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
     }
 
     button {
-      padding: 12px 20px;
-      font-size: 1rem;
+      padding: 16px 24px; /* Increased */
+      font-size: 1.1rem; /* Larger */
       border: none;
-      border-radius: 10px;
-      background-color: #00bfc6;
-      color: #fff;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #009ca6;
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .activity-list {
-      max-width: 900px;
-      margin: 0 auto;
       display: grid;
       gap: 20px;
-    }
-
-    .activity-card {
-      background-color: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
-      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .activity-card h3 {
-      color: #009ca6;
+      color: #ffffff;
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
-    .activity-card p {
-      color: #333;
+    .activity-card p,
+    .activity-card a {
+      color: rgba(255, 255, 255, 0.8);
       font-size: 1rem;
       margin-bottom: 20px;
+      word-break: break-word;
     }
 
     .activity-card .actions {
       display: flex;
       gap: 15px;
+      flex-wrap: wrap;
     }
 
     .actions form,
@@ -94,14 +105,20 @@
       display: inline;
     }
 
-    #edit-form {
-      display: none;
-      max-width: 600px;
-      margin: 40px auto;
-      background-color: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+    button[type="submit"] {
+      background-color: rgba(0, 191, 198, 0.2);
+    }
+
+    button[type="submit"]:hover {
+      background-color: rgba(0, 191, 198, 0.4);
+    }
+
+    button.cancel-btn {
+      background-color: rgba(255, 77, 77, 0.2);
+    }
+
+    button.cancel-btn:hover {
+      background-color: rgba(255, 77, 77, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -131,15 +148,15 @@
   </div>
 
   <!-- Edit Activity Form -->
-  <div id="edit-form">
-    <h3 style="margin-bottom: 20px; color: #22666a;">Edit Activity</h3>
+  <div id="edit-form" style="display: none;">
+    <h3 style="margin-bottom: 20px; color: #ffffff;">Edit Activity</h3>
     <form id="edit-activity-form" method="POST" action="/edit-activity">
       <input type="hidden" name="id" id="edit-id">
       <input type="text" name="title" id="edit-title" placeholder="Activity Title" required />
       <input type="url" name="link" id="edit-link" placeholder="Link (optional)" />
       <div style="display: flex; gap: 10px;">
         <button type="submit">Save Changes</button>
-        <button type="button" onclick="closeEditForm()" style="background-color: #ff4d4d;">Cancel</button>
+        <button type="button" onclick="closeEditForm()" class="cancel-btn">Cancel</button>
       </div>
     </form>
   </div>
@@ -160,14 +177,12 @@
             <button onclick="openEditForm(${a.id}, \`${a.title.replace(/`/g, '\\`')}\`, \`${(a.link || '').replace(/`/g, '\\`')}\`)">Edit</button>
             <form method="POST" action="/delete-activity">
               <input type="hidden" name="id" value="${a.id}" />
-              <button type="submit" style="background-color: #ff4d4d;">Delete</button>
+              <button type="submit" class="cancel-btn">Delete</button>
             </form>
           </div>
         </div>
       `).join('');
     }
-
-    loadActivities();
 
     function openEditForm(id, title, link) {
       document.getElementById('edit-id').value = id;
@@ -180,6 +195,8 @@
     function closeEditForm() {
       document.getElementById('edit-form').style.display = 'none';
     }
+
+    loadActivities();
   </script>
 
 </body>

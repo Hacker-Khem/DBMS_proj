@@ -12,23 +12,24 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
+      background: linear-gradient(135deg, #1e1e2f, #151521);
       padding: 40px 20px;
       min-height: 100vh;
+      color: #e0e0e0;
     }
 
     h2 {
       font-size: 2.2rem;
       text-align: center;
-      color: #22666a;
+      color: #ffffff;
       margin-bottom: 30px;
     }
 
     .form-card {
-      background: #ffffff;
+      background: #2a2a3d;
       padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       max-width: 600px;
       margin: 0 auto 40px;
     }
@@ -38,8 +39,15 @@
       padding: 12px;
       margin-bottom: 15px;
       border-radius: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
+      background-color: #3a3a4d;
+      color: #ffffff;
       font-size: 1rem;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #bbb;
     }
 
     button {
@@ -65,21 +73,21 @@
     }
 
     .announcement-card {
-      background-color: #fff;
+      background-color: #2a2a3d;
       border-radius: 20px;
       padding: 25px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       position: relative;
     }
 
     .announcement-card h3 {
-      color: #009ca6;
+      color: #00c4cc;
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
     .announcement-card p {
-      color: #333;
+      color: #d0d0d0;
       font-size: 1rem;
       margin-bottom: 20px;
     }
@@ -98,10 +106,10 @@
       display: none;
       max-width: 600px;
       margin: 40px auto;
-      background-color: #fff;
+      background-color: #2a2a3d;
       border-radius: 20px;
       padding: 25px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -132,7 +140,7 @@
 
   <!-- Edit Form -->
   <div id="edit-form">
-    <h3 style="margin-bottom: 20px; color: #22666a;">Edit Announcement</h3>
+    <h3 style="margin-bottom: 20px; color: #ffffff;">Edit Announcement</h3>
     <form id="edit-announcement-form" method="POST" action="/edit-announcement">
       <input type="hidden" name="id" id="edit-id">
       <input type="text" name="title" id="edit-title" placeholder="Title" required />

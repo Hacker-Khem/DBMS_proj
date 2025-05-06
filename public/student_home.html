@@ -12,7 +12,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
+      background: linear-gradient(135deg, #0c2c39, #01131a);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,6 +20,7 @@
       flex-direction: column;
       padding: 40px 20px;
       position: relative;
+      color: #ffffff;
     }
 
     .logo-container {
@@ -29,7 +30,7 @@
     }
 
     .logo-container img {
-      width: 200px; /* Original rectangular size */
+      width: 200px;
       height: auto;
       object-fit: contain;
     }
@@ -37,13 +38,13 @@
     h2 {
       font-size: 2.8rem;
       margin-bottom: 10px;
-      color: #22666a;
+      color: #ffffff;
       text-align: center;
     }
 
     .tagline {
       font-size: 1.2rem;
-      color: #4a7d80;
+      color: #aad9df;
       text-align: center;
       margin-bottom: 40px;
     }
@@ -59,43 +60,43 @@
     }
 
     .login-card {
-      background: #ffffff;
+      background: #052f40;
       width: 100%;
       height: 250px;
       padding: 30px 25px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 100, 100, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.05);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      border: 1px solid #c4f1f3;
+      border: 1px solid #00bfc6;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     .login-card:hover {
-      transform: translateY(-12px) scale(1.04);
-      box-shadow: 0 16px 35px rgba(0, 180, 180, 0.3);
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 16px 35px rgba(0, 255, 255, 0.2);
     }
 
     .login-title {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #009ca6;
+      color: #00f0ff;
     }
 
     .login-desc {
       font-size: 1.05rem;
-      color: #4a7d80;
+      color: #b7e9ef;
       margin: 20px 0;
     }
 
     .login-btn {
       padding: 12px 20px;
       font-size: 1rem;
-      color: #fff;
-      background-color: #00bfc6;
+      color: #012c32;
+      background-color: #00f0ff;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -103,7 +104,7 @@
     }
 
     .login-btn:hover {
-      background-color: #009ca6;
+      background-color: #00cdd3;
     }
 
     a {
@@ -127,7 +128,7 @@
     .logout-btn:hover {
       background-color: #e60000;
       transform: scale(1.1);
-      box-shadow: 0 8px 16px rgba(255, 77, 77, 0.2);
+      box-shadow: 0 8px 16px rgba(255, 77, 77, 0.3);
     }
 
     @media (max-width: 1000px) {
@@ -156,7 +157,6 @@
   <h2>Welcome, Student!</h2>
   <div class="tagline">Make the most of your academic journey with us</div>
   <div class="card-container">
-    
     <a href="/mock-tests">
       <div class="login-card">
         <div class="login-title">Mock Tests</div>
@@ -188,9 +188,7 @@
         <button class="login-btn">View Analytics</button>
       </div>
     </a>
-
   </div>
   <a href="index.html"><button class="logout-btn">Logout</button></a>
-  
 </body>
 </html>

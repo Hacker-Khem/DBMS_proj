@@ -8,9 +8,9 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #00bfc6, #004d4d);
+      background: linear-gradient(135deg, #001f1f, #003d3d);
       padding: 0 20px;
-      color: #fff;
+      color: #e0fafa;
     }
 
     .logo-link {
@@ -34,7 +34,7 @@
       text-align: center;
       padding-top: 100px;
       font-size: 3rem;
-      color: #fff;
+      color: #00e0e6;
       margin-bottom: 20px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
@@ -43,7 +43,7 @@
       text-align: center;
       font-size: 1.5rem;
       margin-bottom: 40px;
-      color: #c1e6e8;
+      color: #a3f1f3;
       font-weight: 300;
     }
 
@@ -54,17 +54,17 @@
 
     nav a {
       text-decoration: none;
-      color: #fff;
+      color: #001f1f;
       font-weight: bold;
       padding: 12px 25px;
       border-radius: 30px;
-      background-color: #009ca6;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #00d6df;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     nav a:hover {
-      background-color: #007b8c;
+      background-color: #00b3ba;
       transform: scale(1.05);
     }
 
@@ -72,14 +72,14 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 64, 64, 0.6);
       border-radius: 15px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
     }
 
     #resources-container h2 {
-      color: #fff;
+      color: #00e0e6;
       text-align: center;
       font-size: 2rem;
       margin-bottom: 25px;
@@ -97,31 +97,31 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 20px;
-      background: #004d4d;
+      background: #002c2c;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .resource-item:hover {
-      background-color: #009ca6;
+      background-color: #004f4f;
       transform: translateY(-5px);
     }
 
     .resource-item strong {
-      color: #c1e6e8;
+      color: #a3f1f3;
       font-size: 1.2rem;
     }
 
     .resource-item a {
-      color: #c1e6e8;
+      color: #bffcff;
       text-decoration: none;
       font-size: 1rem;
       margin-top: 8px;
     }
 
     .resource-item a:hover {
-      color: #fff;
+      color: #ffffff;
       text-decoration: underline;
     }
 
@@ -139,19 +139,18 @@
         padding: 15px;
       }
     }
-  </style>
-  <style>
+
     .contribute-form {
       margin-top: 40px;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 64, 64, 0.6);
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
     }
 
     .contribute-form label {
-      color: #c1e6e8;
+      color: #a3f1f3;
       font-size: 1.1rem;
       display: block;
       margin-bottom: 10px;
@@ -164,15 +163,16 @@
       padding: 12px;
       margin-bottom: 15px;
       border-radius: 8px;
-      border: 1px solid #009ca6;
+      border: 1px solid #00c6cc;
       font-size: 1rem;
-      background-color: #fff;
+      background-color: #e6ffff;
+      color: #002c2c;
     }
 
     .contribute-form button {
       padding: 12px 25px;
-      background-color: #009ca6;
-      color: white;
+      background-color: #00d6df;
+      color: #001f1f;
       border: none;
       border-radius: 30px;
       cursor: pointer;
@@ -181,12 +181,11 @@
     }
 
     .contribute-form button:hover {
-      background-color: #007b8c;
+      background-color: #00b3ba;
     }
   </style>
 </head>
 <body>
-  <!-- Your existing content -->
 
   <div id="resources-container">
     <h2>Resources for Subject</h2>
@@ -215,8 +214,6 @@
   </div>
 
   <script>
-    // Existing loadResources function
-
     async function loadResources() {
       const urlParams = new URLSearchParams(window.location.search);
       const subjectId = urlParams.get('subjectId');
@@ -243,7 +240,7 @@
 
             const link = document.createElement('a');
             link.href = resource.link;
-            link.target = "_blank";  // Opens the link in a new tab
+            link.target = "_blank";
             link.textContent = 'View Resource';
 
             resourceItem.appendChild(title);
@@ -258,7 +255,6 @@
       }
     }
 
-    // Handle contribute form submission
     document.getElementById('contribute-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       const urlParams = new URLSearchParams(window.location.search);

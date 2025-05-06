@@ -1,113 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Admin Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
       box-sizing: border-box;
     }
 
     body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #09203f 0%, #1a2a47 100%);
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
       position: relative;
-      width: 800px;
-      max-width: 100%;
-      height: 400px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 14px 28px rgba(0, 123, 255, 0.2);
       overflow: hidden;
     }
 
-    .form-container {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 50px;
+    .login-container {
+      background: rgba(18, 40, 66, 0.9);
+      border-radius: 16px;
+      padding: 40px;
+      width: 320px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       text-align: center;
-      z-index: 2;
     }
 
-    form input {
-      margin: 8px 0;
-      padding: 12px 15px;
+    .login-container h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
       width: 100%;
-      border-radius: 10px;
-      border: 1px solid #c4f1f3;
-      background: #f0f0f0;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #1f3b5b;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #8ca1b8;
     }
 
     button {
-      border-radius: 20px;
-      border: none;
-      padding: 12px 45px;
-      font-weight: bold;
       margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #2dd4bf;
+      color: #fff;
       cursor: pointer;
-      transition: all 0.3s ease;
-      background-color: #00bfc6;
-      color: white;
+      transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #0b868b;
+      background-color: #1fbfaf;
     }
 
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    .logo-link {
+    .logo-circle {
       position: absolute;
       top: 20px;
       left: 20px;
-      z-index: 1000;
-    }
-
-    .logo-img {
-      width: 150px;
-      height: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .logo-img:hover {
-      transform: scale(1.05);
+      background: linear-gradient(to right, #2dd4bf, #3b82f6);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
-      <form method="POST" action="/admin-login">
-        <h1>Admin Login</h1>
-        <input name="username" placeholder="Username" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </div>
+  <!-- Logo Circle -->
+  <div class="logo-circle">NSN</div>
 
-  <!-- Logo -->
-  <a href="index.html" class="logo-link">
-    <img src="logo.png" alt="NextStepNIE Logo" class="logo-img">
-  </a>
+  <!-- Login Form -->
+  <div class="login-container">
+    <form method="POST" action="/admin-login">
+      <h1>Admin Login</h1>
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>

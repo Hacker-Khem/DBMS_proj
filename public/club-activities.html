@@ -9,7 +9,7 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #00bfc6, #004d4d);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       padding: 0 20px;
       color: #fff;
     }
@@ -24,12 +24,12 @@
     }
 
     .section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 50px auto;
       padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(10px);
     }
 
@@ -42,32 +42,33 @@
     }
 
     .item {
-      background: #004d4d;
+      background: #014751;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .item:hover {
-      background-color: #009ca6;
+      background-color: #046e74;
       transform: translateY(-5px);
     }
 
     .item h3 {
       margin: 0;
       font-size: 1.3rem;
-      color: #c1e6e8;
+      color: #ffffff;
     }
 
     .item p {
       margin: 10px 0 0;
       font-size: 1rem;
+      color: #d1d5db;
     }
 
     .item a {
-      color: #c1e6e8;
+      color: #93f9ff;
       text-decoration: none;
     }
 
@@ -76,9 +77,34 @@
       text-decoration: underline;
     }
 
+    .back-button {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    footer {
+      text-align: center;
+      margin: 50px 0 20px;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 600px) {
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
       .section {
         margin: 20px 10px;
@@ -91,6 +117,7 @@
   </style>
 </head>
 <body>
+  <a class="back-button" href="/">Back to Home</a>
   <h1>Club Activities & Announcements</h1>
 
   <div class="section">
@@ -103,6 +130,10 @@
     <div id="announcements-list"></div>
   </div>
 
+  <footer>
+    © 2025 CampusConnect. All rights reserved.
+  </footer>
+
   <script>
     async function loadClubData() {
       try {
@@ -112,11 +143,9 @@
         const activitiesContainer = document.getElementById('activities-list');
         const announcementsContainer = document.getElementById('announcements-list');
 
-        // Clear existing content
         activitiesContainer.innerHTML = '';
         announcementsContainer.innerHTML = '';
 
-        // Activities
         data.activities.forEach(act => {
           const div = document.createElement('div');
           div.className = 'item';
@@ -143,7 +172,6 @@
           activitiesContainer.appendChild(div);
         });
 
-        // Announcements
         data.announcements.forEach(ann => {
           const div = document.createElement('div');
           div.className = 'item';

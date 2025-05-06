@@ -12,64 +12,92 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
-      padding: 40px 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      color: #fff;
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       text-align: center;
-      color: #22666a;
+      color: #ffffff;
       margin-bottom: 30px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     .form-card {
-      background: #ffffff;
-      padding: 25px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 150, 150, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      width: 100%;
       max-width: 600px;
-      margin: 0 auto 40px;
     }
 
-    input[type="text"], input[type="email"], input[type="url"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
       border-radius: 10px;
-      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      color: #fff;
       font-size: 1rem;
+      outline: none;
+      transition: background 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
     }
 
     button {
-      padding: 12px 20px;
+      padding: 15px;
       font-size: 1rem;
       border: none;
       border-radius: 10px;
       background-color: #00bfc6;
       color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background-color: #009ca6;
+      background-color: #00a2aa;
+      transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
       .form-card {
-        width: 90%;
+        padding: 25px 20px;
+      }
+      h2 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <h2>Edit Club Profile</h2>
-
-  <!-- Edit Club Profile Form -->
   <div class="form-card">
+    <h2>Edit Club Profile</h2>
     <form method="POST" action="/edit-club-profile">
       <input type="text" name="club_name" placeholder="Club Name" required />
       <input type="email" name="contact_email" placeholder="Contact Email" required />

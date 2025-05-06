@@ -4,55 +4,68 @@
   <meta charset="UTF-8">
   <title>HR Test</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #d0f0f2, #faffff);
-      padding: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h2 {
-      color: #22666a;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
+      color: #ffffff;
       margin-bottom: 30px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     #questions {
-      max-width: 900px;
       width: 100%;
+      max-width: 900px;
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
 
     .question {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 25px 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 180, 180, 0.15);
-      border: 1px solid #c4f1f3;
-      color: #22666a;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      color: #e0f7fa;
       font-size: 1.1rem;
     }
 
     .question p {
       font-weight: bold;
+      font-size: 1.25rem;
       margin-bottom: 15px;
-      font-size: 1.2rem;
-      color: #009ca6;
+      color: #7de3e9;
     }
 
     .question label {
       display: block;
       margin-bottom: 10px;
       cursor: pointer;
-      color: #4a7d80;
+      color: #b2ebf2;
+      transition: color 0.2s;
     }
 
     .question input[type="radio"] {
-      margin-right: 8px;
+      margin-right: 10px;
+      transform: scale(1.1);
+      accent-color: #00bfc6;
     }
 
     button {
@@ -62,8 +75,9 @@
       color: white;
       background-color: #00bfc6;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 191, 198, 0.3);
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
@@ -73,12 +87,8 @@
     }
 
     @media (max-width: 768px) {
-      body {
-        padding: 20px;
-      }
-
       h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .question {
@@ -114,6 +124,7 @@
         });
       });
 
+      
     function submitTest() {
       const responses = [];
 
